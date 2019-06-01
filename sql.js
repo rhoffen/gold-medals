@@ -22,7 +22,7 @@ Returns a SQL query string that will find the number of gold medals for the give
 */
 
 const goldMedalNumber = country => {
-    return;
+    return `SELECT count(*) AS "count" FROM GoldMedal WHERE country = "${country}"`;
 };
 
 /*
@@ -31,7 +31,11 @@ won the most summer medals, along with the number of medals aliased to 'count'.
 */
 
 const mostSummerWins = country => {
-  return;
+  return `SELECT year, count(*) AS "count" FROM GoldMedal 
+  WHERE country="${country}" and season = "Summer"
+  GROUP BY year
+  ORDER BY count DESC
+  LIMIT 1;`;
 };
 
 /*
@@ -40,7 +44,11 @@ won the most winter medals, along with the number of medals aliased to 'count'.
 */
 
 const mostWinterWins = country => {
-  return;
+  return `SELECT year, count(*) AS "count" FROM GoldMedal 
+  WHERE country="${country}" and season = "Winter"
+  GROUP BY year
+  ORDER BY count DESC
+  LIMIT 1;`;
 };
 
 /*
