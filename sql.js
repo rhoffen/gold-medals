@@ -141,7 +141,17 @@ optionally ordered by the given field in the specified direction.
 */
 
 const orderedMedals = (country, field, sortAscending) => {
-  return;
+  if (!field) {
+    return `SELECT year, season, city, name, event FROM GoldMedal 
+    WHERE country = '${country}';`
+  } else if (sortAscending) {
+    return `SELECT year, season, city, name, event FROM GoldMedal 
+    WHERE country = '${country}'
+    ORDER BY ${field} ASC;`
+  }
+  return `SELECT year, season, city, name, event FROM GoldMedal 
+  WHERE country = '${country}'
+  ORDER BY ${field} DESC;`;
 };
 
 /*
