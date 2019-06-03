@@ -6,7 +6,12 @@ Returns a SQL query string that will create the Country table with four columns:
 */
 
 const createCountryTable = () => {
-  return 'CREATE TABLE "Country" ("name"	TEXT NOT NULL,"code"	TEXT NOT NULL, "gdp"	INTEGER,"population"	INTEGER);'
+  return `CREATE TABLE "Country" (
+    "name"	TEXT NOT NULL,
+    "code"	TEXT NOT NULL,
+    "gdp"	INTEGER,
+    "population"	INTEGER
+    );`
 };
 
 /*
@@ -14,7 +19,18 @@ Returns a SQL query string that will create the GoldMedal table with ten columns
 */
 
 const createGoldMedalTable = () => {
-  return 'CREATE TABLE "GoldMedal" ("id"	INTEGER NOT NULL,"year"	INTEGER NOT NULL,"city"	TEXT NOT NULL,"season"	TEXT NOT NULL,"name"	TEXT NOT NULL,"country"	TEXT NOT NULL, "gender"	TEXT NOT NULL, "sport"	TEXT NOT NULL,"discipline"	TEXT NOT NULL,"event"	TEXT NOT NULL,PRIMARY KEY("id"));';
+  return `CREATE TABLE "GoldMedal" (
+    "id"	INTEGER NOT NULL,
+    "year"	INTEGER NOT NULL,
+    "city"	TEXT NOT NULL,
+    "season"	TEXT NOT NULL,
+    "name"	TEXT NOT NULL,
+    "country"	TEXT NOT NULL,
+    "gender"	TEXT NOT NULL,
+    "sport"	TEXT NOT NULL,
+    "discipline"	TEXT NOT NULL,
+    "event"	TEXT NOT NULL,PRIMARY KEY("id")
+    );`;
 };
 
 /*
